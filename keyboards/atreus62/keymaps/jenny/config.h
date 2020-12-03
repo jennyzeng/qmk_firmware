@@ -1,7 +1,5 @@
 #pragma once
 
-#define AUTO_SHIFT_TIMEOUT 250
-
 /* disable debug print */
 #define NO_DEBUG
 
