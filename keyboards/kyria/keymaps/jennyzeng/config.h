@@ -21,14 +21,19 @@
 #endif
 
 #ifdef RGBLIGHT_ENABLE
+//   #define RGBLIGHT_ANIMATIONS
   #define RGBLIGHT_SLEEP
-  #define RGBLIGHT_EFFECT_BREATHING
-  #define RGBLIGHT_EFFECT_KNIGHT
-  #define RGBLIGHT_EFFECT_ALTERNATING
-  #define RGBLIGHT_EFFECT_TWINKLE
+  #define RGBLIGHT_EFFECT_RAINBOW_MOOD
+  #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+  #define RGBLIGHT_EFFECT_CHRISTMAS
 #endif
 
 #define AUTO_SHIFT_TIMEOUT 180
+
+#define ENCODER_DIRECTION_FLIP
+
+// #define LEADER_TIMEOUT 300
+// #define LEADER_PER_KEY_TIMING
 
 // If you are using an Elite C rev3 on the slave side, uncomment the lines below:
 // #define SPLIT_USB_DETECT
