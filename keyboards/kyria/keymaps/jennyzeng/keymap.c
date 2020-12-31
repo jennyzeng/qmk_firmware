@@ -76,40 +76,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Layer symbol
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |   *    |   _  |   +  |   -   |  [   |  <   |                             |  >   |   ]   |  @   |  #   |  %    |  ` ~ |
+ * |        |   !  |   @  |  #   |  $   |   %  |                              |  ^   |   &   |  *   |  (   |  )  |  `     |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |  /   |  !   |   =   |   {  |   (  |                              |  )   |  }   |  ^   |  ~    |      |  '   |
+ * |        |      |      |      |      |      |                              |  -   |  =   |  {   |  }  | "|"   |  "      |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |      |   ?    |      |      |    |      |      |  |      |      |      |      |      |      |      |        |
+ * |        |      |      |      |      |    |      |      |  |      |        |   _  |   +  |  [   |   ]  |  \   |   ~    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_LOWER] = LAYOUT(
-      KC_ASTR, KC_UNDS, KC_PLUS, KC_MINS, KC_LBRC, KC_LT,                                         KC_GT, KC_RBRC, KC_AT, KC_HASH, KC_PERC, KC_GRAVE,
-      _______, KC_BSLS, KC_EXLM, KC_EQUAL, KC_LCBR, KC_LPRN,                                     KC_RPRN, KC_RCBR, KC_CIRC, KC_TILDE, _______, KC_QUOT,
-      _______, _______, KC_QUES, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+      _______, KC_EXLM, KC_AT, KC_HASH, KC_DOLLAR, KC_PERC,                                         KC_CIRCUMFLEX, KC_AMPERSAND, KC_ASTERISK, KC_LEFT_PAREN, KC_RIGHT_PAREN, KC_GRAVE,
+      _______, _______, _______, _______, _______, _______,                                     KC_MINUS, KC_EQUAL, KC_LCBR, KC_RCBR, KC_PIPE, KC_DQUO,
+      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_BSLS, KC_TILDE,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 /*
- * Raise Layer: Function keys
+ * Raise Layer: num keys
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |  F1  |  F2  |  F3  |  F4  |  F5  |                              |  1   |  2   |  3   |  4   | 5    | ESC   |
+ * |        |  1   |   2  |   3  |   4  |   5  |                              |  6   |  7   |  8   |  9   | 0    | ~      |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |  F6  |  F7  |  F8  |  F9  | F10  |                              | 6    |  7   |  8   |  9   | 0    |        |
+ * |        |      |      |      |      |      |                              | left |  up  |  down| right |      |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |  F11 | F12  |      |      |      |      |      |  |      |      | left |  up  |  down| right|      |        |
+ * |        |      |      |      |      |      |      |      |  |      |      |      |      |      |       |      |        |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        |      |      |      |      |      |  |      |      |      |default|      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_RAISE] = LAYOUT(
-      _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                       KC_1,   KC_2,   KC_3,   KC_4,   KC_5,  _______,
-      _______, KC_F6, KC_F7, KC_F8, KC_9, KC_F10,                                      KC_6,  KC_7, KC_8, KC_9, KC_0, _______,
-      _______, KC_F11, KC_F12, _______, _______, _______, _______, _______, _______, _______,  KC_LEFT, KC_UP, KC_DOWN, KC_RIGHT, _______, _______,
+      _______, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                                       KC_6,   KC_7,   KC_8,   KC_9,   KC_0,  KC_TILDE,
+      _______, _______, _______, _______, _______, _______,                                    KC_LEFT,  KC_UP, KC_DOWN, KC_RIGHT, _______, _______,
+      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______,
                                  _______, _______, _______, _______, _______, _______, _______, _______, TO(_DEFAULT), _______
 
     ),
@@ -138,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Layer Android
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |      |      |      |      |      |                              |      |      |      |import|format|        |
+ * |        |      |  F2   |      |      |      |                              |      |      |      |import|format|        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |        | action|screenshot|duxo|fragment|      |                         |      |      |      |layout|       |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
@@ -149,7 +149,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_ANDROID] = LAYOUT(
-      _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _IMPORT, _FORMAT, _______,
+      _______, _______, KC_F2, _______, _______, _______,                                     _______, _______, _______, _IMPORT, _FORMAT, _______,
       _______, _ACTION, _SCREEN_SHOT, _DUXO, _FRAGMENT, _______,                                     _______, _______, _______, _GT_LAYOUT, _______, _______,
       _______, _______, _______, _______, _VIEW_STATE, _______, _______, _______, _______, _______, _______, _______, _______, _RENAME, _REFACTOR, _______,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
@@ -277,7 +277,7 @@ static void render_status(void) {
             oled_write_P(PSTR("symbols\n"), false);
             break;
         case _RAISE:
-            oled_write_P(PSTR("function/numbers\n"), false);
+            oled_write_P(PSTR("numbers/arrows\n"), false);
             break;
         case _ADJUST:
             oled_write_P(PSTR("adjust\n"), false);
@@ -292,10 +292,10 @@ static void render_status(void) {
     oled_write_P(PSTR("Encoder 0: \n"), false);
     switch (get_highest_layer(layer_state)) {
         case _RAISE:
-            oled_write_P(PSTR("Skip/Prev song\n"), false);
+            oled_write_P(PSTR("Volume control\n"), false);
             break;
         default:
-            oled_write_P(PSTR("Volume control\n"), false);
+            oled_write_P(PSTR("Skip/Prev song\n"), false);
             break;
         }
 
@@ -325,22 +325,23 @@ void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         switch (get_highest_layer(layer_state)) {
             case _RAISE:
-                // Skip/Prev song
-                if (clockwise) {
-                    tap_code(KC_MNXT);
-                    clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
-                } else {
-                    tap_code(KC_MPRV);
-                    clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
-                }
-                break;
-            default:
                 // Volume control
                 if (clockwise) {
                     tap_code(KC_VOLU);
                     clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
                 } else {
                     tap_code(KC_VOLD);
+                    clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+                }
+                break;
+
+            default:
+               // Skip/Prev song
+                if (clockwise) {
+                    tap_code(KC_MNXT);
+                    clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+                } else {
+                    tap_code(KC_MPRV);
                     clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
                 }
                 break;

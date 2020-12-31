@@ -135,9 +135,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * 2           -    -   *   -   *   *   *
 */
 bool led_update_keymap(led_t led_state) {
-    writePin(TOP_LED, LED_ON(IS_LAYER_ON(0) || IS_LAYER_ON(3) || IS_LAYER_ON(4) || IS_LAYER_ON(6)));
-    writePin(MIDDLE_LED, LED_ON(IS_LAYER_ON(1) || IS_LAYER_ON(3) || IS_LAYER_ON(5) || IS_LAYER_ON(6)));
-    writePin(BOTTOM_LED, LED_ON(IS_LAYER_ON(2) || IS_LAYER_ON(4) || IS_LAYER_ON(5) || IS_LAYER_ON(6)));
+    writePin(B2, LED_ON(IS_LAYER_ON(0) || IS_LAYER_ON(3) || IS_LAYER_ON(4) || IS_LAYER_ON(6)));
+    writePin(B9, LED_ON(IS_LAYER_ON(1) || IS_LAYER_ON(3) || IS_LAYER_ON(5) || IS_LAYER_ON(6)));
+    writePin(C5, LED_ON(IS_LAYER_ON(2) || IS_LAYER_ON(4) || IS_LAYER_ON(5) || IS_LAYER_ON(6)));
     return false; // Override default set by KB
 }
 #endif
