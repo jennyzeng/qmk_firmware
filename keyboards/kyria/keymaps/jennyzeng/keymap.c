@@ -282,20 +282,20 @@ static void render_status(void) {
     oled_write_P(PSTR("Encoder 0: \n"), false);
     switch (get_highest_layer(layer_state)) {
         case _RAISE:
-            oled_write_P(PSTR("Volume control\n"), false);
+            oled_write_P(PSTR("Switch tabs\n"), false);
             break;
         default:
-            oled_write_P(PSTR("Skip/Prev song\n"), false);
+            oled_write_P(PSTR("Page up/down\n"), false);
             break;
         }
 
     oled_write_P(PSTR("Encoder 1: \n"), false);
     switch (get_highest_layer(layer_state)) {
         case _LOWER:
-            oled_write_P(PSTR("Switch tabs\n"), false);
+            oled_write_P(PSTR("Skip/Prev song\n"), false);
             break;
         default:
-            oled_write_P(PSTR("Zoom in/out\n"), false);
+            oled_write_P(PSTR("Volume control\n"), false);
             break;
         }
 
@@ -315,17 +315,28 @@ void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         switch (get_highest_layer(layer_state)) {
             case _RAISE:
-                // Volume control
+                // Zoom
                 if (clockwise) {
-                    tap_code(KC_VOLU);
+                    tap_code16(_ZOOM_IN);
                     clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
                 } else {
-                    tap_code(KC_VOLD);
+                    tap_code16(_ZOOM_OUT);
+                    clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+                }
+            default:
+                // Page up/down
+                if (clockwise) {
+                    tap_code(KC_PGDN);
+                    clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+                } else {
+                    tap_code(KC_PGUP);
                     clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
                 }
                 break;
-
-            default:
+        }
+    } else if (index == 1) {
+        switch (get_highest_layer(layer_state)) {
+            case _LOWER:
                // Skip/Prev song
                 if (clockwise) {
                     tap_code(KC_MNXT);
@@ -335,26 +346,13 @@ void encoder_update_user(uint8_t index, bool clockwise) {
                     clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
                 }
                 break;
-        }
-    } else if (index == 1) {
-        switch (get_highest_layer(layer_state)) {
-            case _LOWER:
-                // switch tabs
-                if (clockwise) {
-                    tap_code16(SGUI(KC_RBRC));
-                    clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
-                } else {
-                    tap_code16(SGUI(KC_LBRC));
-                    clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
-                }
-                break;
             default:
-                // Zoom
+                // Volume control
                 if (clockwise) {
-                    tap_code16(LGUI(KC_PLUS));
+                    tap_code(KC_VOLU);
                     clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
                 } else {
-                    tap_code16(LGUI(KC_MINUS));
+                    tap_code(KC_VOLD);
                     clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
                 }
                 break;

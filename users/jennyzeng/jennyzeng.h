@@ -17,6 +17,7 @@
 
 // navigation
 #define _MISSION_CONTROL LCTL(KC_UP)
+#define _ALFRED LALT(KC_SPACE)
 #define _TOGGLE_DOCK LGUI((LALT(KC_D)))
 #define _DESKTOP LCTL(KC_DOWN)
 #define _LEFT_SPACE LCTL(KC_LEFT)
@@ -132,8 +133,8 @@ enum layers {
 #define QWERTY_R3_KYRIA                                                                         KC_RCBR, XXXXXXX, QWERTY_R3
 #define QWERTY_3_KYRIA_12 QWERTY_L3_KYRIA, QWERTY_R3_KYRIA
 
-#define QWERTY_L4_KYRIA                                    KC_MPLY, QWERTY_L4_CORNE, KC_LALT
-#define QWERTY_R4_KYRIA                                                                         KC_DEL, QWERTY_R4_CORNE, _MISSION_CONTROL
+#define QWERTY_L4_KYRIA                                    _ALFRED, QWERTY_L4_CORNE, KC_LALT
+#define QWERTY_R4_KYRIA                                                                         KC_DEL, QWERTY_R4_CORNE, KC_MPLY
 #define QWERTY_4_KYRIA_12 QWERTY_L4_KYRIA, QWERTY_R4_KYRIA
 
 #define LOWER_L3_KYRIA                                      LOWER_L3, XXXXXXX,   _______
