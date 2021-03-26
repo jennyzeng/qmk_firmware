@@ -315,12 +315,12 @@ void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         switch (get_highest_layer(layer_state)) {
             case _RAISE:
-                // Zoom
+                // switch tab
                 if (clockwise) {
-                    tap_code16(_ZOOM_IN);
+                    tap_code16(_RIGHT_TAB);
                     clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
                 } else {
-                    tap_code16(_ZOOM_OUT);
+                    tap_code16(_LEFT_TAB);
                     clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
                 }
             default:
